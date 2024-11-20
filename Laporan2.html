@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laporan I Praktikum Sistem Paralel dan Terdistribusi</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1, h2, h3, h4 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin-top: 35px;
+        }
+
+        h4 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            color: #333;
+        }
+
+        p, ul {
+            text-align: justify;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            list-style-type: circle;
+        }
+
+        ul li strong {
+            color: #4CAF50;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #43a047;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pembahasan</h2>
+
+        <div class="section">
+            <h3>Konfigurasi MikroTik dengan WinBox</h3>
+
+            <h4>A. Pengenalan WinBox</h4>
+            <p>WinBox adalah sebuah aplikasi grafis yang dirancang oleh MikroTik untuk memungkinkan pengelolaan dan konfigurasi perangkat RouterOS dengan antarmuka pengguna yang intuitif dan responsif. Aplikasi ini memudahkan administrator jaringan dalam mengelola perangkat MikroTik tanpa harus menggunakan perintah berbasis teks (command line interface atau CLI).</p>
+            <p>Meskipun dikembangkan secara native untuk sistem operasi Windows (Win32/Win64), WinBox juga dapat dijalankan pada sistem operasi lain seperti macOS dan Linux melalui emulator Wine. Aplikasi ini menyediakan akses lengkap ke semua fitur RouterOS, termasuk routing, manajemen firewall, pengaturan bandwidth, konfigurasi hotspot, dan manajemen titik akses nirkabel (Wi-Fi).</p>
+
+            <h4>B. Keunggulan WinBox</h4>
+            <ul>
+                <li><strong>Antarmuka grafis yang sederhana:</strong> Memungkinkan konfigurasi cepat tanpa perlu menghafal perintah CLI.</li>
+                <li><strong>Fleksibel:</strong> Dapat diakses dari berbagai platform dengan bantuan emulator.</li>
+                <li><strong>Real-time monitoring:</strong> Menyediakan informasi dan statistik jaringan secara langsung.</li>
+                <li><strong>Multifungsi:</strong> Mengelola semua aspek router seperti DHCP server, NAT, firewall, dan lain-lain dengan mudah.</li>
+            </ul>
+
+            <h4>C. Topologi Jaringan dan Mode Operasi MikroTik</h4>
+            <p>MikroTik RouterOS menawarkan fleksibilitas tinggi dalam pengelolaan jaringan, memungkinkan pengguna untuk mengkonfigurasinya sebagai router atau bridge. Setiap mode ini memiliki fungsi dan kegunaan yang berbeda sesuai dengan kebutuhan jaringan.</p>
+
+            <h5>Contoh Kasus Penggunaan:</h5>
+            <ul>
+                <li><strong>Mode Router:</strong> Digunakan saat ingin menghubungkan jaringan internal ke internet, menyediakan fitur firewall untuk keamanan, dan mengatur distribusi IP melalui DHCP.</li>
+                <li><strong>Mode Bridge:</strong> Cocok untuk menyatukan beberapa jaringan di dalam satu jaringan logis, seperti menyatukan jaringan kantor dengan jaringan Wi-Fi publik.</li>
+            </ul>
+
+            <h4>D. Langkah-Langkah Konfigurasi MikroTik dalam Mode Router</h4>
+            <ol>
+                <li>Menghubungkan MikroTik ke PC: Hubungkan router MikroTik ke komputer menggunakan kabel Ethernet. Pilih salah satu port dari port 2 hingga port 5 pada perangkat RB931-2nD.</li>
+                <li>Mengunduh dan Membuka WinBox: Unduh WinBox dari situs resmi MikroTik di mikrotik.com, lalu buka aplikasi dan login menggunakan alamat MAC router yang terdeteksi.</li>
+                <li>Menghapus Konfigurasi Default: Pilih opsi “Remove Configuration” untuk memulai konfigurasi dari awal tanpa pengaturan default yang dapat menyebabkan konflik.</li>
+                <li>Menetapkan Alamat IP untuk LAN: Tambahkan alamat IP untuk LAN, misalnya 192.168.1.40/24 melalui menu IP > Addresses.</li>
+                <li>Mengkonfigurasi DHCP Server: Tambahkan DHCP Server baru untuk memungkinkan perangkat dalam jaringan mendapatkan IP secara otomatis.</li>
+                <li>Menambahkan NAT untuk Akses Internet: Tambahkan aturan NAT pada tab Firewall > NAT dengan action “masquerade” untuk membolehkan akses internet.</li>
+                <li>Menyetel DNS Server: Tambahkan DNS Server seperti 8.8.8.8 di menu IP > DNS untuk memungkinkan akses ke internet.</li>
+                <li>Menyimpan Pengaturan dan Reboot: Simpan pengaturan dan reboot perangkat MikroTik melalui menu System > Reboot.</li>
+            </ol>
+
+            <h4>E. Pengujian dan Troubleshooting</h4>
+            <p>Setelah reboot, pastikan perangkat dalam jaringan dapat:</p>
+            <ul>
+                <li>Mendapatkan IP otomatis dari DHCP server.</li>
+                <li>Mengakses internet dengan IP yang diberikan.</li>
+                <li>Melakukan ping ke perangkat lain dalam jaringan lokal dan internet.</li>
+            </ul>
+            <p>Jika terjadi masalah, periksa koneksi fisik, verifikasi DHCP Server, dan pastikan aturan NAT sudah diterapkan dengan benar.</p>
+        </div>
+
+        <div class="section">
+            <a href="index.html" class="btn">Kembali ke Halaman Utama</a>
+        </div>
+    </div>
+
+</body>
+</html>

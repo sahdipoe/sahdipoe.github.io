@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laporan I Praktikum Sistem Paralel dan Terdistribusi</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1, h2, h3, h4 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin-top: 35px;
+        }
+
+        h4 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            color: #333;
+        }
+
+        p, ul {
+            text-align: justify;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            list-style-type: circle;
+        }
+
+        ul li strong {
+            color: #4CAF50;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #43a047;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pembahasan</h2>
+
+        <div class="section">
+            <h4>1. Topologi dan Persiapan Awal</h4>
+            <p>Sebelum masuk ke konfigurasi, kita perlu menentukan topologi jaringan dan alamat IP yang akan digunakan.</p>
+            <ul>
+                <li><strong>MikroTik 1 (R1):</strong>
+                    <ul>
+                        <li>Interface ether1: 10.10.10.1/24</li>
+                        <li>Interface ether2: 192.168.100.1/24</li>
+                    </ul>
+                </li>
+                <li><strong>MikroTik 2 (R2):</strong>
+                    <ul>
+                        <li>Interface ether1: 10.10.10.2/24</li>
+                        <li>Interface ether2: 11.11.11.1/24</li>
+                        <li>Interface ether3: 192.168.200.1/24</li>
+                    </ul>
+                </li>
+                <li><strong>MikroTik 3 (R3):</strong>
+                    <ul>
+                        <li>Interface ether1: 11.11.11.2/24</li>
+                        <li>Interface ether2: 192.168.50.1/24</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>2. Langkah Konfigurasi MikroTik</h4>
+            <h5>2.1. Konfigurasi IP Address</h5>
+            <p>Berikut ini langkah-langkah konfigurasi IP address pada setiap MikroTik:</p>
+            <ul>
+                <li><strong>MikroTik 1 (R1):</strong> Interface ether1: 10.10.10.1/24, ether2: 192.168.100.1/24</li>
+                <li><strong>MikroTik 2 (R2):</strong> ether1: 10.10.10.2/24, ether2: 11.11.11.1/24, ether3: 192.168.200.1/24</li>
+                <li><strong>MikroTik 3 (R3):</strong> ether1: 11.11.11.2/24, ether2: 192.168.50.1/24</li>
+            </ul>
+
+            <h5>2.2. Konfigurasi Static Routing</h5>
+            <p>Tambahkan routing statis untuk memastikan komunikasi antar router:</p>
+            <ul>
+                <li><strong>R1:</strong> dst. 192.168.2.0/24 → gw 11.11.11.1</li>
+                <li><strong>R2:</strong> dst. 192.168.1.0/24 → gw 192.168.12.1</li>
+                <li><strong>R3:</strong> dst. 192.168.2.0/24 → gw 192.168.200.1</li>
+            </ul>
+
+            <h5>2.3. Testing Koneksi</h5>
+            <p>Gunakan perintah <strong>ping</strong> untuk menguji konektivitas antar router.</p>
+        </div>
+
+        <div class="section">
+            <a href="index.html" class="btn">Kembali ke Halaman Utama</a>
+        </div>
+    </div>
+
+</body>
+</html>
