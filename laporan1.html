@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laporan I Praktikum Sistem Paralel dan Terdistribusi</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1, h2, h3, h4 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin-top: 35px;
+        }
+
+        h4 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            color: #333;
+        }
+
+        /* Text styling */
+        p, ul {
+            text-align: justify;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            list-style-type: circle;
+        }
+
+        ul li strong {
+            color: #4CAF50;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        /* Button Style */
+        .btn {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #43a047;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pembahasan</h2>
+
+        <div class="section">
+            <h3 class="section-title">1. Mikrotik</h3>
+            <p>MikroTik adalah perusahaan yang berasal dari Latvia yang mengembangkan perangkat keras dan perangkat lunak untuk jaringan komputer. Mereka terkenal dengan sistem operasi RouterOS, yang digunakan pada router dan perangkat jaringan untuk mengelola trafik, firewall, VPN, dan banyak fitur jaringan lainnya. Produk MikroTik dikenal karena harganya yang kompetitif dan kemampuan jaringan yang kuat.</p>
+
+            <h4>Jenis-Jenis Mikrotik</h4>
+            <ul>
+                <li><strong>Router:</strong> RB Series, hAP Series</li>
+                <li><strong>Switch:</strong> CSS Series, CRS Series</li>
+                <li><strong>Access Point:</strong> cAP Series, wAP Series</li>
+                <li><strong>Point-to-Point dan Point-to-Multipoint:</strong> mANT Series, SXT Series</li>
+                <li><strong>MikroTik Cloud Solutions:</strong> RouterOS, The Dude</li>
+                <li><strong>Perangkat Khusus:</strong> CAPsMAN, Netinstall</li>
+            </ul>
+
+            <h4>Fungsi Mikrotik</h4>
+            <ul>
+                <li>Routing, Firewall, VPN, Bandwidth Management, Hotspot, Dynamic DNS</li>
+                <li>Wireless Networking, Network Monitoring, Load Balancing</li>
+            </ul>
+
+            <h4>Kelebihan MikroTik</h4>
+            <ul>
+                <li>Biaya Efisien, Fleksibilitas, Kustomisasi, Dukungan Komunitas, Fitur Lengkap, Mudah Dikelola, Skalabilitas</li>
+            </ul>
+
+            <h4>Kekurangan MikroTik</h4>
+            <ul>
+                <li>Kurva Belajar, Dukungan Resmi, Stabilitas, Performa, Fitur yang Rumit</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">2. Beberapa Tipe Lab Mikrotik</h3>
+            <ul>
+                <li>Lab Dasar: Pengaturan IP, DHCP, dan NAT</li>
+                <li>Lab Jaringan Nirkabel: Konfigurasi jaringan Wi-Fi dan keamanan</li>
+                <li>Lab VPN: Membangun koneksi VPN dengan PPTP, L2TP, OpenVPN</li>
+                <li>Lab Firewall dan Keamanan: Pengaturan aturan firewall dan perlindungan serangan</li>
+                <li>Lab Bandwidth Management: Mengatur dan menguji manajemen bandwidth</li>
+                <li>Lab Hotspot: Sistem hotspot untuk pengelolaan akses internet publik</li>
+                <li>Lab Routing dan Switching: Protokol routing dan pengaturan switch</li>
+                <li>Lab Monitoring dan Manajemen: Menggunakan The Dude untuk memantau jaringan</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">3. Konfigurasi MikroTik</h3>
+            <p>Konfigurasi adalah proses pengaturan perangkat atau sistem untuk memastikan mereka berfungsi sesuai kebutuhan. Beberapa contoh konfigurasi MikroTik meliputi pengaturan alamat IP, DHCP server, NAT, firewall, hotspot, VPN, dan manajemen bandwidth.</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">4. Pengertian Winbox</h3>
+            <p>Winbox adalah aplikasi manajemen grafis yang digunakan untuk mengkonfigurasi perangkat MikroTik. Dengan Winbox, pengguna dapat melakukan berbagai pengaturan seperti IP, firewall, routing, serta monitoring jaringan secara real-time. Aplikasi ini sangat memudahkan administrator jaringan untuk mengelola perangkat MikroTik mereka.</p>
+
+            <h4>Fungsi Winbox</h4>
+            <ul>
+                <li>Konfigurasi jaringan, manajemen firewall, routing, pengaturan wireless, monitoring, backup dan restore, manajemen user, scripting</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <a href="index.html" class="btn">Kembali ke Halaman Utama</a>
+        </div>
+    </div>
+
+</body>
+</html>
